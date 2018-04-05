@@ -78,57 +78,42 @@ public class GUI extends JFrame {
         cp.add(painelNorte, BorderLayout.NORTH);
         cp.add(painelCentro, BorderLayout.CENTER);
         
-        painelCentro.setLayout(new GridLayout(8,1));
+        painelCentro.setLayout(new GridLayout(8,4));
         painelNorte.add(lbAvisoNorte);
         
-        painelCentro.add(painelCentroLinha1);
-        painelCentro.add(painelCentroLinha2);
-        painelCentro.add(painelCentroLinha3);
-        painelCentro.add(painelCentroLinha4);
-        painelCentro.add(painelCentroLinha5);
-        painelCentro.add(painelCentroLinha6);
-        painelCentro.add(painelCentroLinha7);
-        painelCentro.add(painelCentroLinha8);
-        
-        painelCentroLinha1.add(lbQuantidade);
-        painelCentroLinha1.add(lbLanche);
-        painelCentroLinha1.add(lbPreco);
-        painelCentroLinha1.add(lbSubtotal);
-        
-        painelCentroLinha2.add(tfQntxSalada);
-        painelCentroLinha2.add(lbXSalada);
-        painelCentroLinha2.add(lbPxSalada);
-        painelCentroLinha2.add(tfxSalada);
-        
-        painelCentroLinha3.add(tfQntxEgg);
-        painelCentroLinha3.add(lbXEgg);
-        painelCentroLinha3.add(lbPxEgg);
-        painelCentroLinha3.add(tfxEgg);
-        
-        painelCentroLinha4.add(tfQntxFrango);
-        painelCentroLinha4.add(lbXFrango);
-        painelCentroLinha4.add(lbPxFrango);
-        painelCentroLinha4.add(tfxFrango);
-        
-        painelCentroLinha5.add(tfQntxTudo);
-        painelCentroLinha5.add(lbXTudo);
-        painelCentroLinha5.add(lbPxTudo);
-        painelCentroLinha5.add(tfxTudo);
-        
-        painelCentroLinha6.add(tfQntxNerd);
-        painelCentroLinha6.add(lbXNerd);
-        painelCentroLinha6.add(lbPxNerd);
-        painelCentroLinha6.add(tfxNerd);
-        
-        painelCentroLinha7.add(lbVazio1);
-        painelCentroLinha7.add(lbVazio2);
-        painelCentroLinha7.add(lbVazio3);
-        painelCentroLinha7.add(lbVazio4);
-        
-        painelCentroLinha8.add(btCalcular);
-        painelCentroLinha8.add(lbVazio5);
-        painelCentroLinha8.add(lbTotal);
-        painelCentroLinha8.add(tfTotal);
+        painelCentro.add(lbQuantidade);
+        painelCentro.add(lbLanche);
+        painelCentro.add(lbPreco);
+        painelCentro.add(lbSubtotal);
+        painelCentro.add(tfQntxSalada);
+        painelCentro.add(lbXSalada);
+        painelCentro.add(lbPxSalada);
+        painelCentro.add(tfxSalada);
+        painelCentro.add(tfQntxEgg);
+        painelCentro.add(lbXEgg);
+        painelCentro.add(lbPxEgg);
+        painelCentro.add(tfxEgg);
+        painelCentro.add(tfQntxFrango);
+        painelCentro.add(lbXFrango);
+        painelCentro.add(lbPxFrango);
+        painelCentro.add(tfxFrango);
+        painelCentro.add(tfQntxTudo);
+        painelCentro.add(lbXTudo);
+        painelCentro.add(lbPxTudo);
+        painelCentro.add(tfxTudo);
+        painelCentro.add(tfQntxNerd);
+        painelCentro.add(lbXNerd);
+        painelCentro.add(lbPxNerd);
+        painelCentro.add(tfxNerd);
+        painelCentro.add(lbVazio1);
+        painelCentro.add(lbVazio2);
+        painelCentro.add(lbVazio3);
+        painelCentro.add(lbVazio4);
+        painelCentro.add(btCalcular);
+        painelCentro.add(lbVazio5);
+        painelCentro.add(lbTotal);
+        painelCentro.add(tfTotal);
+
 
 
         setLocationRelativeTo(null);//centraliza no monitor
