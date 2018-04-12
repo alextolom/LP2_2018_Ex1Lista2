@@ -42,11 +42,11 @@ public class GUI extends JFrame {
     private JTextField tfQntxTudo = new JTextField(1000);
     private JTextField tfQntxNerd = new JTextField(1000);
     
-    private JTextField tfxSalada = new JTextField(1000);
-    private JTextField tfxEgg = new JTextField(1000);
-    private JTextField tfxFrango = new JTextField(1000);
-    private JTextField tfxTudo = new JTextField(1000);
-    private JTextField tfxNerd = new JTextField(1000);
+    private JLabel lbxSalada1 = new JLabel();
+    private JLabel lbxEgg1 = new JLabel();
+    private JLabel lbxFrango1 = new JLabel();
+    private JLabel lbxTudo1 = new JLabel();
+    private JLabel lbxNerd1 = new JLabel();
     
     private JLabel lbVazio1 = new JLabel("");
     private JLabel lbVazio2 = new JLabel("");
@@ -64,12 +64,12 @@ public class GUI extends JFrame {
     
     private JLabel lbTotal = new JLabel("Total");
     private JLabel lbVazio5 = new JLabel("");
-    private JTextField tfTotal = new JTextField(1000);
+    private JLabel lbTotal1 = new JLabel();
     
     private JButton btCalcular = new JButton("Calcular");
 
     public GUI() {
-        setSize(1000, 800);
+        setSize(800, 600);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         cp = getContentPane();
         cp.setLayout(new BorderLayout());
@@ -85,34 +85,61 @@ public class GUI extends JFrame {
         painelCentro.add(lbLanche);
         painelCentro.add(lbPreco);
         painelCentro.add(lbSubtotal);
+        
         painelCentro.add(tfQntxSalada);
         painelCentro.add(lbXSalada);
         painelCentro.add(lbPxSalada);
-        painelCentro.add(tfxSalada);
+        painelCentro.add(lbxSalada1);
+        
         painelCentro.add(tfQntxEgg);
         painelCentro.add(lbXEgg);
         painelCentro.add(lbPxEgg);
-        painelCentro.add(tfxEgg);
+        painelCentro.add(lbxEgg1);
+        
         painelCentro.add(tfQntxFrango);
         painelCentro.add(lbXFrango);
         painelCentro.add(lbPxFrango);
-        painelCentro.add(tfxFrango);
+        painelCentro.add(lbxFrango1);
+        
         painelCentro.add(tfQntxTudo);
         painelCentro.add(lbXTudo);
         painelCentro.add(lbPxTudo);
-        painelCentro.add(tfxTudo);
+        painelCentro.add(lbxTudo1);
+        
         painelCentro.add(tfQntxNerd);
         painelCentro.add(lbXNerd);
         painelCentro.add(lbPxNerd);
-        painelCentro.add(tfxNerd);
+        painelCentro.add(lbxNerd1);
+        
         painelCentro.add(lbVazio1);
         painelCentro.add(lbVazio2);
         painelCentro.add(lbVazio3);
         painelCentro.add(lbVazio4);
+        
         painelCentro.add(btCalcular);
         painelCentro.add(lbVazio5);
         painelCentro.add(lbTotal);
-        painelCentro.add(tfTotal);
+        painelCentro.add(lbTotal1);
+        
+        btCalcular.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Processamento processamento = new Processamento();
+                processamento.setQntXSalada(Double.valueOf(tfQntxSalada.getText()));
+                processamento.setQntXEgg(Double.valueOf(tfQntxEgg.getText()));
+                processamento.setQntXFrango(Double.valueOf(tfQntxFrango.getText()));
+                processamento.setQntXTudo(Double.valueOf(tfQntxTudo.getText()));
+                processamento.setQntXNerd(Double.valueOf(tfQntxNerd.getText()));
+                
+                lbxSalada1.setText(String.valueOf(processamento.getpXSalada()));
+                lbxEgg1.setText(String.valueOf(processamento.getpXEgg()));
+                lbxFrango1.setText(String.valueOf(processamento.getpXFrango()));
+                lbxTudo1.setText(String.valueOf(processamento.getpXTudo()));
+                lbxNerd1.setText(String.valueOf(processamento.getpXNerd()));
+                lbTotal1.setText(String.valueOf(processamento.getQntTotal()));
+                
+            }
+        });
 
 
 
