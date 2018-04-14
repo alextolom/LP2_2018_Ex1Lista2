@@ -2,7 +2,9 @@ package Main;
 
 //@author Radames J Halmeman  - rjhalmeman@gmail.com
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Container;
+import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,7 +19,9 @@ public class GUI extends JFrame {
     private Container cp;
     private JPanel painelNorte = new JPanel();
     private JPanel painelCentro = new JPanel();
+    private JPanel painelSul = new JPanel();
     private JLabel lbAvisoNorte = new JLabel("Lanches Nerd S.A");
+    private JLabel lbAviso = new JLabel("--");
     
     private JLabel lbQuantidade = new JLabel("Quantidade");
     private JLabel lbLanche = new JLabel("Lanche");
@@ -42,11 +46,11 @@ public class GUI extends JFrame {
     private JTextField tfQntxTudo = new JTextField(1000);
     private JTextField tfQntxNerd = new JTextField(1000);
     
-    private JTextField tfxSalada = new JTextField(1000);
-    private JTextField tfxEgg = new JTextField(1000);
-    private JTextField tfxFrango = new JTextField(1000);
-    private JTextField tfxTudo = new JTextField(1000);
-    private JTextField tfxNerd = new JTextField(1000);
+    private JLabel lbxSalada1 = new JLabel();
+    private JLabel lbxEgg1 = new JLabel();
+    private JLabel lbxFrango1 = new JLabel();
+    private JLabel lbxTudo1 = new JLabel();
+    private JLabel lbxNerd1 = new JLabel();
     
     private JLabel lbVazio1 = new JLabel("");
     private JLabel lbVazio2 = new JLabel("");
@@ -64,12 +68,12 @@ public class GUI extends JFrame {
     
     private JLabel lbTotal = new JLabel("Total");
     private JLabel lbVazio5 = new JLabel("");
-    private JTextField tfTotal = new JTextField(1000);
+    private JLabel lbTotal1 = new JLabel();
     
     private JButton btCalcular = new JButton("Calcular");
 
     public GUI() {
-        setSize(1000, 800);
+        setSize(800, 600);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         cp = getContentPane();
         cp.setLayout(new BorderLayout());
@@ -77,42 +81,97 @@ public class GUI extends JFrame {
         
         cp.add(painelNorte, BorderLayout.NORTH);
         cp.add(painelCentro, BorderLayout.CENTER);
+        cp.add(painelSul, BorderLayout.SOUTH);
         
         painelCentro.setLayout(new GridLayout(8,4));
         painelNorte.add(lbAvisoNorte);
+        painelSul.add(lbAviso);
+        painelNorte.setBackground(Color.CYAN);
         
         painelCentro.add(lbQuantidade);
         painelCentro.add(lbLanche);
         painelCentro.add(lbPreco);
         painelCentro.add(lbSubtotal);
+        
         painelCentro.add(tfQntxSalada);
         painelCentro.add(lbXSalada);
         painelCentro.add(lbPxSalada);
-        painelCentro.add(tfxSalada);
+        painelCentro.add(lbxSalada1);
+        
         painelCentro.add(tfQntxEgg);
         painelCentro.add(lbXEgg);
         painelCentro.add(lbPxEgg);
-        painelCentro.add(tfxEgg);
+        painelCentro.add(lbxEgg1);
+        
         painelCentro.add(tfQntxFrango);
         painelCentro.add(lbXFrango);
         painelCentro.add(lbPxFrango);
-        painelCentro.add(tfxFrango);
+        painelCentro.add(lbxFrango1);
+        
         painelCentro.add(tfQntxTudo);
         painelCentro.add(lbXTudo);
         painelCentro.add(lbPxTudo);
-        painelCentro.add(tfxTudo);
+        painelCentro.add(lbxTudo1);
+        
         painelCentro.add(tfQntxNerd);
         painelCentro.add(lbXNerd);
         painelCentro.add(lbPxNerd);
-        painelCentro.add(tfxNerd);
+        painelCentro.add(lbxNerd1);
+        
         painelCentro.add(lbVazio1);
         painelCentro.add(lbVazio2);
         painelCentro.add(lbVazio3);
         painelCentro.add(lbVazio4);
+        
         painelCentro.add(btCalcular);
         painelCentro.add(lbVazio5);
         painelCentro.add(lbTotal);
-        painelCentro.add(tfTotal);
+        painelCentro.add(lbTotal1);
+        
+        btCalcular.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Processamento processamento = new Processamento();
+                lbAviso.setText(":D");
+                lbAviso.setOpaque(true);
+                lbAviso.setBackground(Color.green);
+                try{
+                    if (tfQntxSalada.getText().equals("")) {
+                        tfQntxSalada.setBackground(Color.yellow);
+                    }
+                    if (tfQntxEgg.getText().equals("")) {
+                        tfQntxEgg.setText("0");
+                    }
+                    if (tfQntxFrango.getText().equals("")) {
+                        tfQntxFrango.setText("0");
+                    }
+                    if (tfQntxTudo.getText().equals("")) {
+                        tfQntxTudo.setText("0");
+                    }
+                    if (tfQntxNerd.getText().equals("")) {
+                        tfQntxNerd.setText("0");
+                    }
+                
+                processamento.setQntXSalada(Double.valueOf(tfQntxSalada.getText()));
+                processamento.setQntXEgg(Double.valueOf(tfQntxEgg.getText()));
+                processamento.setQntXFrango(Double.valueOf(tfQntxFrango.getText()));
+                processamento.setQntXTudo(Double.valueOf(tfQntxTudo.getText()));
+                processamento.setQntXNerd(Double.valueOf(tfQntxNerd.getText()));
+                
+                lbxSalada1.setText(String.valueOf(processamento.getpXSalada()));
+                lbxEgg1.setText(String.valueOf(processamento.getpXEgg()));
+                lbxFrango1.setText(String.valueOf(processamento.getpXFrango()));
+                lbxTudo1.setText(String.valueOf(processamento.getpXTudo()));
+                lbxNerd1.setText(String.valueOf(processamento.getpXNerd()));
+                lbTotal1.setText(String.valueOf(processamento.getQntTotal()));
+                
+            } catch(Exception erro){
+            lbAviso.setText("Erro -->" + erro.getMessage());
+            lbAviso.setBackground(Color.red);    
+            
+            }
+            }
+        });
 
 
 
