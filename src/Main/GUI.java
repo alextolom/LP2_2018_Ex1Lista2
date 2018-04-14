@@ -19,6 +19,7 @@ public class GUI extends JFrame {
     private Container cp;
     JPanel pnCentro = new JPanel();
     JPanel pnSul = new JPanel();
+    JPanel pnNorte = new JPanel();
     
     private JPanel painelCentroLinha1 = new JPanel();
     private JPanel painelCentroLinha2 = new JPanel();
@@ -46,6 +47,8 @@ public class GUI extends JFrame {
     
     private JButton btCalcular = new JButton("Calcular");
     
+    private JLabel lbAvisoNorte = new JLabel("Bem-vindo ao programa");
+    
     private JLabel lbAviso = new JLabel("--");
 
     public GUI() {
@@ -55,8 +58,14 @@ public class GUI extends JFrame {
         cp.setLayout(new BorderLayout());
         setTitle("Exercício 03 - Lista 02");
         
+        cp.add(pnNorte, BorderLayout.NORTH);
         cp.add(pnCentro, BorderLayout.CENTER);
         cp.add(pnSul, BorderLayout.SOUTH);
+        
+        pnSul.setBackground(Color.CYAN);
+        
+        pnNorte.add(lbAvisoNorte);
+        pnNorte.setBackground(Color.WHITE);
         
         
         pnCentro.setLayout(new GridLayout(6,1));
@@ -102,14 +111,16 @@ public class GUI extends JFrame {
                 lbAviso.setBackground(Color.green);
                 
                 try{
+                    
+                    
                     processamento.setX1(Double.valueOf(tfPontox1.getText()));
                     processamento.setX2(Double.valueOf(tfPontox2.getText()));
                     processamento.setY1(Double.valueOf(tfPontoy1.getText()));
                     processamento.setY2(Double.valueOf(tfPontoy2.getText()));
                     
                     tfResultado.setText(String.valueOf(processamento.getResult()));
-                }catch(Exception er){
-                    lbAviso.setText("Erro -->" + er.getMessage());
+                }catch(Exception error){
+                    lbAviso.setText("Erro -->, digite um número" + error.getMessage());
                     lbAviso.setBackground(Color.red);
                 }
             }
