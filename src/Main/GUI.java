@@ -2,7 +2,9 @@ package Main;
 
 //@author Radames J Halmeman  - rjhalmeman@gmail.com
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Container;
+import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,7 +19,9 @@ public class GUI extends JFrame {
     private Container cp;
     private JPanel painelNorte = new JPanel();
     private JPanel painelCentro = new JPanel();
+    private JPanel painelSul = new JPanel();
     private JLabel lbAvisoNorte = new JLabel("Lanches Nerd S.A");
+    private JLabel lbAviso = new JLabel("--");
     
     private JLabel lbQuantidade = new JLabel("Quantidade");
     private JLabel lbLanche = new JLabel("Lanche");
@@ -77,9 +81,12 @@ public class GUI extends JFrame {
         
         cp.add(painelNorte, BorderLayout.NORTH);
         cp.add(painelCentro, BorderLayout.CENTER);
+        cp.add(painelSul, BorderLayout.SOUTH);
         
         painelCentro.setLayout(new GridLayout(8,4));
         painelNorte.add(lbAvisoNorte);
+        painelSul.add(lbAviso);
+        painelNorte.setBackground(Color.CYAN);
         
         painelCentro.add(lbQuantidade);
         painelCentro.add(lbLanche);
@@ -125,6 +132,26 @@ public class GUI extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Processamento processamento = new Processamento();
+                lbAviso.setText(":D");
+                lbAviso.setOpaque(true);
+                lbAviso.setBackground(Color.green);
+                try{
+                    if (tfQntxSalada.getText().equals("")) {
+                        tfQntxSalada.setBackground(Color.yellow);
+                    }
+                    if (tfQntxEgg.getText().equals("")) {
+                        tfQntxEgg.setText("0");
+                    }
+                    if (tfQntxFrango.getText().equals("")) {
+                        tfQntxFrango.setText("0");
+                    }
+                    if (tfQntxTudo.getText().equals("")) {
+                        tfQntxTudo.setText("0");
+                    }
+                    if (tfQntxNerd.getText().equals("")) {
+                        tfQntxNerd.setText("0");
+                    }
+                
                 processamento.setQntXSalada(Double.valueOf(tfQntxSalada.getText()));
                 processamento.setQntXEgg(Double.valueOf(tfQntxEgg.getText()));
                 processamento.setQntXFrango(Double.valueOf(tfQntxFrango.getText()));
@@ -138,6 +165,11 @@ public class GUI extends JFrame {
                 lbxNerd1.setText(String.valueOf(processamento.getpXNerd()));
                 lbTotal1.setText(String.valueOf(processamento.getQntTotal()));
                 
+            } catch(Exception erro){
+            lbAviso.setText("Erro -->" + erro.getMessage());
+            lbAviso.setBackground(Color.red);    
+            
+            }
             }
         });
 
