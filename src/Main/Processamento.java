@@ -40,7 +40,7 @@ public class Processamento {
             comissao1 = 0.075*corretor1;
         }else if(corretor1<=50000){
             comissao1 = 0.095*corretor1;
-        }else{
+        }else if(corretor1>50000){
             comissao1 = 0.125*corretor1;
         }
         return comissao1;
@@ -53,9 +53,9 @@ public class Processamento {
     public double getComissao2() {
         if (corretor2<=30000) {
             comissao2 = 0.075*corretor2;
-        }else if(corretor1<=50000){
+        }else if(corretor2<=50000){
             comissao2 = 0.095*corretor2;
-        }else{
+        }else if(corretor2>50000){
             comissao2 = 0.125*corretor2;
         }
         return comissao2;
@@ -68,9 +68,9 @@ public class Processamento {
     public double getComissao3() {
         if (corretor3<=30000) {
             comissao3 = 0.075*corretor3;
-        }else if(corretor1<=50000){
+        }else if(corretor3<=50000){
             comissao3 = 0.095*corretor3;
-        }else{
+        }else if(corretor3>50000){
             comissao3 = 0.125*corretor3;
         }
         return comissao3;

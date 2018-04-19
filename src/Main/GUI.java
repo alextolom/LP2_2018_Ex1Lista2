@@ -99,6 +99,18 @@ public class GUI extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Processamento processamento = new Processamento();
+                
+                if (tfCorretor1.getText().equals("")) {
+                    tfCorretor1.setText("0");
+                    
+                }if (tfCorretor2.getText().equals("")) {
+                    tfCorretor2.setText("0");
+                    
+                }if (tfCorretor3.getText().equals("")) {
+                    tfCorretor3.setText("0");
+                    
+                }
+                
                 processamento.setCorretor1(Double.valueOf(tfCorretor1.getText()));
                 processamento.setCorretor2(Double.valueOf(tfCorretor2.getText()));
                 processamento.setCorretor3(Double.valueOf(tfCorretor3.getText()));
